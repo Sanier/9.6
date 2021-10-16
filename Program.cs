@@ -29,7 +29,7 @@ namespace _9._6
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    Console.WriteLine("Непредвиденная ошибака {0}", ex.Message);
                 }
             }
             
