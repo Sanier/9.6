@@ -13,9 +13,7 @@ namespace _9._6
 
         public void Read()
         {
-
-            Console.WriteLine();
-            Console.WriteLine("Введите значение 1 (А-Я) либо 2 (Я-А)");
+            Console.WriteLine("Введите число 1 для сортировка от А до Я, либо же 2 для сортировки от Я до А");
 
             int number = Convert.ToInt32(Console.ReadLine());
 

@@ -37,7 +37,7 @@ namespace _9._6
 
         static void ShowNumber(int number)
         {
-            Console.WriteLine("Введите 5 фамилий студентов");
+            Console.WriteLine("Введите фамилии 5-ти человек");
             List<string> name = new List<string>();
             bool match;
             for (int i = 0; i < 5; i++)
@@ -51,7 +51,7 @@ namespace _9._6
                 case 1:
                     {
                         Console.WriteLine();
-                        Console.WriteLine("А-Я");
+                        Console.WriteLine("Сортировка от А до Я");
                         Console.WriteLine();
 
                         name.Sort();
@@ -64,7 +64,7 @@ namespace _9._6
                 case 2:
                     {
                         Console.WriteLine();
-                        Console.WriteLine("Я-А");
+                        Console.WriteLine("Сортировка от Я до А");
                         Console.WriteLine();
 
                         name.Sort();
