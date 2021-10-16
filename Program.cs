@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Text.RegularExpressions;
+using System.Text;
+using System.Collections.Generic;
 
 
 namespace _9._6
@@ -7,56 +10,72 @@ namespace _9._6
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите 5 фамилий студентов");
-            Student();
-
             NumberReader numberReader = new NumberReader();
             numberReader.NumberEneteredEvent += ShowNumber;
 
-            try
+            while (true)
             {
-                numberReader.Read();
+                try
+                {
+                    numberReader.Read();
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Введено некорректное значение");
+                }
+                catch (PersonException)
+                {
+                    Console.WriteLine("Некорректный язык ввода");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
-            catch(FormatException)
-            {
-                Console.WriteLine("Введено некорректное значение");
-            }
-            catch()
-            {
-
-            }
+            
         }
 
         static void ShowNumber(int number)
         {
-            switch(number)
+            Console.WriteLine("Введите 5 фамилий студентов");
+            List<string> name = new List<string>();
+            bool match;
+            for (int i = 0; i < 5; i++)
+            {
+                name.Add(Console.ReadLine());
+                if (match = Regex.IsMatch(name[i], "^[a-zA-Z0-9]*$")) throw new PersonException(name[i]);
+            }
+
+            switch (number)
             {
                 case 1:
                     {
+                        Console.WriteLine();
                         Console.WriteLine("А-Я");
+                        Console.WriteLine();
 
+                        name.Sort();
+                        foreach (string item in name)
+                        {
+                            Console.WriteLine(item);
+                        }
                         break;
                     }
                 case 2:
                     {
+                        Console.WriteLine();
                         Console.WriteLine("Я-А");
+                        Console.WriteLine();
 
+                        name.Sort();
+                        name.Reverse();
+                        foreach (string item in name)
+                        {
+                            Console.WriteLine(item);
+                        }
                         break;
-
                     }
             }
         }
-
-        static void Student()
-        {
-            string[] name = new string[4];
-
-            for (int i = 0; i < name.Length; i++)
-            {
-                name[i] = Console.ReadLine();
-            }
-        }
-
-
     }
 }

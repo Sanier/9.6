@@ -8,6 +8,9 @@ namespace _9._6
 {
     class PersonException : ArgumentNullException
     {
+        public PersonException(string message) : base(message)
+        {
 
+        }
     }
 }
